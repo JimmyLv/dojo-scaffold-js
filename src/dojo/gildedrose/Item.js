@@ -6,15 +6,15 @@ export default class Item {
   }
 
   isAgedBrie() {
-    return this.name === 'Aged Brie'
+    return false
   }
 
   isBackstagePass() {
-    return this.name === 'Backstage passes to a TAFKAL80ETC concert'
+    return false
   }
 
   isSulfuras() {
-    return this.name === 'Sulfuras, Hand of Ragnaros'
+    return false
   }
 
   isBetterQualityWhenTimeGoesBy() {
@@ -69,9 +69,7 @@ export default class Item {
   }
 
   updateSellInDays() {
-    if (!this.isSulfuras()) {
-      this.sellIn = this.sellIn - 1
-    }
+    this.sellIn = this.sellIn - 1
   }
 
   toString() {

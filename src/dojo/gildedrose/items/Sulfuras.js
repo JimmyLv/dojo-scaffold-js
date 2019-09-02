@@ -8,4 +8,6 @@ export default class Sulfuras extends Item {
   isSulfuras() {
     return true
   }
+
+  updateSellInDays() {}
 }
