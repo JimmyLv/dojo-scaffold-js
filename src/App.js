@@ -27,7 +27,7 @@ function App() {
       </article>
       <section>
         <h1>库存结果</h1>
-        <p>{TexttestFixture()}</p>
+        <p>{TexttestFixture.generate()}</p>
       </section>
     </div>
   )
