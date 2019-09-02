@@ -22,8 +22,8 @@ export default class Item {
   }
 
   passOneDay() {
-    this.updateQuality()
     this.updateSellInDays()
+    this.updateQuality()
 
     if (this.isExpired()) {
       this.updateQualityAfterExpiration()
@@ -39,11 +39,11 @@ export default class Item {
       this.quality = this.quality + 1
 
       if (this.isBackstagePass()) {
-        if (this.sellIn < 11 && this.quality < 50) {
+        if (this.sellIn < 10 && this.quality < 50) {
           this.quality = this.quality + 1
         }
 
-        if (this.sellIn < 6 && this.quality < 50) {
+        if (this.sellIn < 5 && this.quality < 50) {
           this.quality = this.quality + 1
         }
       }
