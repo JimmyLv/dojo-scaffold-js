@@ -1,7 +1,7 @@
 import React from 'react'
 import logo from './logo.svg'
 import './App.css'
-import TexttestFixture from './dojo/gildedrose/TexttestFixture'
+import TextTestFixture from './dojo/gildedrose/TextTestFixture'
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
       </article>
       <section>
         <h1>库存结果</h1>
-        <p>{TexttestFixture()}</p>
+        <p>{TextTestFixture.generate()}</p>
       </section>
     </div>
   )
