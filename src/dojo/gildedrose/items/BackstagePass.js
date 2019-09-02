@@ -19,10 +19,4 @@ export default class BackstagePass extends Item {
       this.increaseQuality()
     }
   }
-
-  increaseQuality() {
-    if (this.quality < 50) {
-      this.quality = this.quality + 1
-    }
-  }
 }

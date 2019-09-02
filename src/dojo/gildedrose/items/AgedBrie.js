@@ -5,14 +5,10 @@ export default class AgedBrie extends Item {
     super('Aged Brie', sellIn, quality)
   }
   updateQualityAfterExpiration() {
-    if (this.quality < 50) {
-      this.quality = this.quality + 1
-    }
+    this.increaseQuality()
   }
 
   updateQuality() {
-    if (this.quality < 50) {
-      this.quality = this.quality + 1
-    }
+    this.increaseQuality()
   }
 }

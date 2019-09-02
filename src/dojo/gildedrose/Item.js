@@ -28,6 +28,12 @@ export default class Item {
     }
   }
 
+  increaseQuality() {
+    if (this.quality < 50) {
+      this.quality = this.quality + 1
+    }
+  }
+
   isExpired() {
     return this.sellIn < 0
   }
