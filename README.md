@@ -10,6 +10,24 @@
 
 用 Intellij IDEA 或 WebStorm 或者你习惯的任何 IDE（但是我强烈建议不要使用 IDEA 或 WebStorm 之外的其他 IDE）导入工程，运行全部测试，你应该看到绿条。
 
+```bash
+$ yarn start #查看题目
+$ yarn test #运行测试
+
+------
+
+ PASS  src/App.test.js
+ PASS  src/dojo/fizzBuzz.test.js
+
+Test Suites: 2 passed, 2 total
+Tests:       6 passed, 6 total
+Snapshots:   0 total
+Time:        2.681s
+Ran all test suites.
+
+Watch Usage: Press w to show more.
+```
+
 从这里开始你的 Dojo 练习。
 
 ------
