@@ -15,12 +15,14 @@ export default class Item {
   }
 
   updateQuality() {
-    if (this.quality > 0) {
-      this.quality = this.quality - 1
-    }
+    this.decreaseQuality()
   }
 
   updateQualityAfterExpiration() {
+    this.decreaseQuality()
+  }
+
+  decreaseQuality() {
     if (this.quality > 0) {
       this.quality = this.quality - 1
     }
