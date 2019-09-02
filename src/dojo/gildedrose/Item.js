@@ -5,22 +5,6 @@ export default class Item {
     this.quality = quality
   }
 
-  isAgedBrie() {
-    return false
-  }
-
-  isBackstagePass() {
-    return false
-  }
-
-  isSulfuras() {
-    return false
-  }
-
-  isBetterQualityWhenTimeGoesBy() {
-    return this.isAgedBrie() || this.isBackstagePass()
-  }
-
   passOneDay() {
     this.updateSellInDays()
     this.updateQuality()
@@ -31,22 +15,8 @@ export default class Item {
   }
 
   updateQuality() {
-    if (!this.isBetterQualityWhenTimeGoesBy()) {
-      if (this.quality > 0 && !this.isSulfuras()) {
-        this.quality = this.quality - 1
-      }
-    } else if (this.quality < 50) {
-      this.quality = this.quality + 1
-
-      if (this.isBackstagePass()) {
-        if (this.sellIn < 10 && this.quality < 50) {
-          this.quality = this.quality + 1
-        }
-
-        if (this.sellIn < 5 && this.quality < 50) {
-          this.quality = this.quality + 1
-        }
-      }
+    if (this.quality > 0) {
+      this.quality = this.quality - 1
     }
   }
 

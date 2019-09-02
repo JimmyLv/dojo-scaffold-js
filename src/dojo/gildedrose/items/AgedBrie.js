@@ -11,6 +11,11 @@ export default class AgedBrie extends Item {
     if (this.quality < 50) {
       this.quality = this.quality + 1
     }
+  }
 
+  updateQuality() {
+    if (this.quality < 50) {
+      this.quality = this.quality + 1
+    }
   }
 }

@@ -11,6 +11,7 @@ export default class Sulfuras extends Item {
 
   updateSellInDays() {}
 
-  updateQualityAfterExpiration() {
-  }
+  updateQualityAfterExpiration() {}
+
+  updateQuality() {}
 }
