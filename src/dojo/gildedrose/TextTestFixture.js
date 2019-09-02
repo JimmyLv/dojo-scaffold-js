@@ -33,7 +33,7 @@ export default class TextTestFixture {
         result += item
       }
       result += '\n'
-      app.updateQuality()
+      app.passesOneDay()
     }
 
     return result

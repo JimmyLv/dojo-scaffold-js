@@ -2,7 +2,7 @@ export default class GildedRose {
   constructor(items) {
     this.items = items
   }
-  updateQuality() {
+  passesOneDay() {
     this.items.forEach(item => {
       item.updateQualityAndSellInDays()
     })

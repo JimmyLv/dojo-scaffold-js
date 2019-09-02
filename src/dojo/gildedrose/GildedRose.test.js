@@ -8,7 +8,7 @@ describe('GildedRose', () => {
     const app = new GildedRose(items)
 
     // when
-    app.updateQuality()
+    app.passesOneDay()
 
     // then
     expect(app.items[0].name).toBe('foo')
