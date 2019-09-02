@@ -5,6 +5,18 @@ export default class Item {
     this.quality = quality
   }
 
+  static createBackstagePass(sellIn, quality) {
+    return new Item('Backstage passes to a TAFKAL80ETC concert', sellIn, quality)
+  }
+  static createSulfuras(sellIn, quality) {
+    return new Item('Sulfuras, Hand of Ragnaros', sellIn, quality)
+  }
+  static createAgedBrie(sellIn, quality) {
+    return new Item('Aged Brie', sellIn, quality)
+  }
+  static createNormalItem(name, sellIn, quality) {
+    return new Item(name, sellIn, quality)
+  }
   isAgedBrie() {
     return this.name === 'Aged Brie'
   }
