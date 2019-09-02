@@ -4,7 +4,7 @@ export default class GildedRose {
   }
   passesOneDay() {
     this.items.forEach(item => {
-      item.updateQualityAndSellInDays()
+      item.passOneDay()
     })
   }
 }

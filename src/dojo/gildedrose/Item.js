@@ -21,9 +21,9 @@ export default class Item {
     return this.isAgedBrie() || this.isBackstagePass()
   }
 
-  updateQualityAndSellInDays() {
-    this.updateSellInDays()
+  passOneDay() {
     this.updateQuality()
+    this.updateSellInDays()
 
     if (this.isExpired()) {
       this.updateQualityAfterExpiration()
