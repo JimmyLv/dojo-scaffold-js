@@ -7,4 +7,10 @@ export default class AgedBrie extends Item {
   isAgedBrie() {
     return true
   }
+  updateQualityAfterExpiration() {
+    if (this.quality < 50) {
+      this.quality = this.quality + 1
+    }
+
+  }
 }

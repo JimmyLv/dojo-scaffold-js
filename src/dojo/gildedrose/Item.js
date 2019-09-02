@@ -51,16 +51,8 @@ export default class Item {
   }
 
   updateQualityAfterExpiration() {
-    if (!this.isAgedBrie()) {
-      if (!this.isBackstagePass()) {
-        if (this.quality > 0 && !this.isSulfuras()) {
-          this.quality = this.quality - 1
-        }
-      } else {
-        this.quality = 0
-      }
-    } else if (this.quality < 50) {
-      this.quality = this.quality + 1
+    if (this.quality > 0) {
+      this.quality = this.quality - 1
     }
   }
 

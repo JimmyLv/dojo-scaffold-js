@@ -7,4 +7,7 @@ export default class BackstagePass extends Item {
   isBackstagePass() {
     return true
   }
+  updateQualityAfterExpiration() {
+    this.quality = 0
+  }
 }
