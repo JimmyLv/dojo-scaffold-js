@@ -53,4 +53,26 @@ describe('todo item', () => {
       payload: { id: 1 },
     })
   })
+
+  it('remove item on click', () => {
+    // given
+    const dispatch = cy.spy().as('dispatch')
+    const props = {
+      id: 1,
+      text: 'test item',
+      completed: true,
+      dispatch,
+    }
+    // when
+    cy.mount(<TodoItem {...props} />)
+
+    // then
+    cy.contains('test item').get('.delete').click()
+    // just verify the dispatched action
+    cy.get('@dispatch').should('be.calledWith', {
+      type: types.REMOVE,
+      payload: { id: 1 },
+    })
+  })
+
 })

@@ -8,7 +8,7 @@ export function TodoItem({ id, text, completed, dispatch }) {
     className={completed ? 'done' : undefined}
     onClick={() => dispatch(todos.actions.toggle(id))}
   >
-    {text}
+    {text} <span className="delete" onClick={() => dispatch(todos.actions.remove(id))}>x</span>
   </li>
 }
 

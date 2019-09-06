@@ -3,6 +3,7 @@ export const NAME = 'todos'
 export const types = {
   ADD: `${NAME}/ADD_TODO`,
   TOGGLE: `${NAME}/TOGGLE_TODO`,
+  REMOVE: `${NAME}/REMOVE_TODO`,
 }
 
 let nextId = 0
@@ -19,6 +20,10 @@ export default {
     }),
     toggle: id => ({
       type: types.TOGGLE,
+      payload: { id },
+    }),
+    remove: id => ({
+      type: types.REMOVE,
       payload: { id },
     }),
   },
@@ -40,6 +45,8 @@ export default {
             ? { ...todo, completed: !todo.completed }
             : todo,
         )
+      case types.REMOVE:
+        return state.filter(todo => todo.id !== payload.id)
       default:
         return state
     }

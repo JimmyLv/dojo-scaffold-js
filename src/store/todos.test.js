@@ -33,4 +33,27 @@ describe('todos reducers', () => {
       { id: 1, text: 'new todo.', completed: true },
     ])
   })
+  it('should remove todo in store state', () => {
+    const action = {
+      type: types.REMOVE,
+      payload: { id: 2 },
+    }
+    const state = [
+      {
+        id: 1,
+        text: 'new todo.',
+        completed: true,
+      }, {
+        id: 2,
+        text: 'another new todo.',
+        completed: false,
+      },
+    ]
+
+    const result = todos.reducer(state, action)
+
+    expect(result).toEqual([
+      { id: 1, text: 'new todo.', completed: true },
+    ])
+  })
 })
