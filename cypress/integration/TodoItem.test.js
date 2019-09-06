@@ -1,16 +1,19 @@
 import React from 'react'
-import TodoItem from '../../src/components/TodoItem'
+import { TodoItem } from '../../src/components/TodoItem'
+import { types } from '../../src/store/todos'
 
 describe('todo item', () => {
   it('shows an item', () => {
     // given
     const props = {
-      id: '1',
-      value: 'test item',
-      done: false,
+      id: 1,
+      text: 'test item',
+      completed: false,
     }
     // when
-    cy.mount(<TodoItem {...props} />)
+    cy.mount(
+      <TodoItem {...props} />,
+    )
 
     // then
     cy.contains('test item')
@@ -19,9 +22,9 @@ describe('todo item', () => {
   it('marks done items', () => {
     // given
     const props = {
-      id: '1',
-      value: 'test item',
-      done: true,
+      id: 1,
+      text: 'test item',
+      completed: true,
     }
     // when
     cy.mount(<TodoItem {...props} />)
@@ -32,18 +35,22 @@ describe('todo item', () => {
 
   it('calls toggle on click', () => {
     // given
-    const toggle = cy.spy().as('toggle')
+    const dispatch = cy.spy().as('dispatch')
     const props = {
-      id: '1',
-      value: 'test item',
-      done: false,
-      toggle,
+      id: 1,
+      text: 'test item',
+      completed: false,
+      dispatch,
     }
     // when
     cy.mount(<TodoItem {...props} />)
 
     // then
     cy.contains('test item').click()
-    cy.get('@toggle').should('be.calledOnce')
+    // just verify the dispatched action
+    cy.get('@dispatch').should('be.calledWith', {
+      type: types.TOGGLE,
+      payload: { id: 1 },
+    })
   })
 })

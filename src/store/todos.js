@@ -2,6 +2,7 @@
 export const NAME = 'todos'
 export const types = {
   ADD: `${NAME}/ADD_TODO`,
+  TOGGLE: `${NAME}/TOGGLE_TODO`,
 }
 
 let nextId = 0
@@ -13,7 +14,11 @@ export default {
       type: types.ADD,
       id: nextId++,
       text,
-    })
+    }),
+    toggle: id => ({
+      type: types.TOGGLE,
+      payload: { id },
+    }),
   },
   reducer(state = [], action) {
     switch (action.type) {
@@ -26,6 +31,12 @@ export default {
             completed: false,
           },
         ]
+      case types.TOGGLE:
+        return state.map(todo =>
+          todo.id === action.id
+            ? { ...todo, completed: !todo.completed }
+            : todo,
+        )
       default:
         return state
     }

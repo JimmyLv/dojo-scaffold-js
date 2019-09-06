@@ -1,17 +1,15 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import todos from '../store/todos'
+import './TodoItem.css'
 
-function TodoItem({ id, text, complete, toggle }) {
+export function TodoItem({ id, text, completed, dispatch }) {
   return <li
-    className={complete ? 'done' : undefined}
-    onClick={e =>
-      toggle({
-        text: complete,
-        id: id,
-      })
-    }
+    className={completed ? 'done' : undefined}
+    onClick={() => dispatch(todos.actions.toggle(id))}
   >
     {text}
   </li>
 }
 
-export default TodoItem
+export default connect()(TodoItem)
