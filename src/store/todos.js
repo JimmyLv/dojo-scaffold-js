@@ -1,4 +1,3 @@
-// Actions
 export const NAME = 'todos'
 export const types = {
   ADD: `${NAME}/ADD_TODO`,

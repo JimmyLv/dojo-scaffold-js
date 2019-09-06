@@ -1,9 +1,21 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import filter from '../store/filter'
 
-export default function FilterInfo({ filters = []}) {
+export function FilterInfo({ filters = [], dispatch }) {
   return <div>
-    {filters.map(filter =>
-      <span key={filter}><a href={`#${filter}`}>{filter}</a> </span>
+    {filters.map(status =>
+      <span key={status}>
+        <a
+          href={`#${status}`}
+          onClick={() => dispatch(filter.actions.setFilterStatus(status))}
+        >
+          {status}
+        </a>
+        {' '}
+      </span>,
     )}
   </div>
 }
+
+export default connect()(FilterInfo)

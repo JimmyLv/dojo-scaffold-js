@@ -1,6 +1,6 @@
 import React from 'react'
-import { TodoItem } from '../../src/components/TodoItem'
-import { types } from '../../src/store/todos'
+import { TodoItem } from '../../../src/components/TodoItem'
+import { types } from '../../../src/store/todos'
 
 describe('todo item', () => {
   it('shows an item', () => {
@@ -67,7 +67,7 @@ describe('todo item', () => {
     cy.mount(<TodoItem {...props} />)
 
     // then
-    cy.contains('test item').get('.delete').click()
+    cy.contains('test item').children('.delete').click()
     // just verify the dispatched action
     cy.get('@dispatch').should('be.calledWith', {
       type: types.REMOVE,

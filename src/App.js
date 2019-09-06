@@ -8,7 +8,7 @@ import TodoItem from './components/TodoItem'
 export function App({ todos }) {
   return (
     <div>
-      <h1>Todo</h1>
+      <h1>Todo (<span className="count">{todos.length}</span>)</h1>
       <FilterInfo filters={['All', 'Active', 'Completed']} />
       <AddTodo />
       <p>

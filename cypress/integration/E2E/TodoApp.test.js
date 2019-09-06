@@ -7,7 +7,7 @@ it('Can add, complete, uncompleted, delete an todo item and filter by status', (
   cy.get('[type="text"]')
     .type('Get eggs')
 
-  cy.get('[type="submit"]')
+  cy.get('button')
     .click()
 
   cy.get('li:first')
@@ -16,8 +16,37 @@ it('Can add, complete, uncompleted, delete an todo item and filter by status', (
   cy.get('[type="text"]')
     .type('Buy milk')
 
-  cy.get('[type="submit"]')
+  cy.get('button')
     .click()
+
+  cy.get('li')
+    .should('have.length', 2)
+
+  cy.contains('Get eggs')
+    .click()
+    .should('have.css', 'text-decoration', 'line-through solid rgb(217, 217, 217)')
+
+  cy.contains('Buy milk')
+    .children('.delete')
+    .click()
+
+  cy.get('li')
+    .should('have.length', 1)
+
+  cy.get('[type="text"]')
+    .type('Buy Apple')
+
+  cy.get('button')
+    .click()
+
+  cy.get('.count').should('contain', '2')
+
+  cy.contains('Completed').click()
+
+  cy.get('li')
+    .should('have.length', 1)
+
+  cy.contains('All').click()
 
   cy.get('li')
     .should('have.length', 2)
