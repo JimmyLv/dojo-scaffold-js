@@ -1,9 +1,18 @@
-import todos from './todos'
+import todos, { addTodo } from './todos'
 
 describe('todos reducers', () => {
-  it('should add todo', () => {
+  it('should dispatch action when add todo', () => {
+    const action = addTodo('new todo.')
+
+    expect(action).toEqual({
+      type: 'todos/ADD_TODO',
+      id: 0,
+      text: 'new todo.'
+    })
+  })
+  it('should add todo in store state', () => {
     const action = {
-      type: 'ADD_TODO',
+      type: 'todos/ADD_TODO',
       id: 1,
       text: 'new todo.',
     }

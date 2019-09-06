@@ -1,17 +1,27 @@
-const todos = (state = [], action) => {
+// Actions
+const ADD = 'todos/ADD_TODO'
+
+// Action Creators
+let nextId = 0
+export const addTodo = text => ({
+  type: ADD,
+  id: nextId++,
+  text,
+})
+
+// Reducers
+export default function todos(state = [], action) {
   switch (action.type) {
-    case 'ADD_TODO':
+    case ADD:
       return [
         ...state,
         {
           id: action.id,
           text: action.text,
-          completed: false
-        }
+          completed: false,
+        },
       ]
     default:
       return state
   }
 }
-
-export default todos
