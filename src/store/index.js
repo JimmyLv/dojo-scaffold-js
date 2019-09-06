@@ -2,7 +2,7 @@ import { createStore, combineReducers } from 'redux'
 import todos from './todos'
 
 const rootReducer = combineReducers({
-  todos,
+  [todos.namespace]: todos.reducer,
 })
 
 const store = createStore(rootReducer)

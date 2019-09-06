@@ -1,18 +1,28 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import './App.css'
-import TodoItem from './components/TodoItem'
-import FilterInfo from './components/FilterInfo'
 import AddTodo from './components/AddTodo'
+import FilterInfo from './components/FilterInfo'
+import TodoItem from './components/TodoItem'
 
-function App() {
+export function App({ todos }) {
   return (
     <div>
       <h1>Todo</h1>
       <FilterInfo filters={['All', 'Done']} />
       <AddTodo />
-      {[].forEach(item => <TodoItem {...item} />)}
+      <p>
+        {todos.map(item => <TodoItem key={item.id} {...item} />)}
+      </p>
     </div>
   )
 }
 
-export default App
+function mapStateToProps(state) {
+  console.log('state', state)
+  return {
+    todos: state.todos,
+  }
+}
+
+export default connect(mapStateToProps)(App)

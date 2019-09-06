@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux'
+import todos from '../store/todos'
 
-export default function AddTodo() {
+export function AddTodo({ dispatch }) {
   const [value, setValue] = useState('')
 
   const handleSubmit = e => {
+    dispatch(todos.actions.addTodo(value))
+    setValue('')
     e.preventDefault()
   }
 
@@ -17,3 +21,5 @@ export default function AddTodo() {
     <input type="submit" value="+" />
   </form>
 }
+
+export default connect()(AddTodo)

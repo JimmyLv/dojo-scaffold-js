@@ -1,16 +1,16 @@
 import React from 'react'
 
-function TodoItem({ id, value, done, toggle }) {
+function TodoItem({ id, text, complete, toggle }) {
   return <li
-    className={done ? 'done' : undefined}
+    className={complete ? 'done' : undefined}
     onClick={e =>
       toggle({
-        value: done,
+        text: complete,
         id: id,
       })
     }
   >
-    {value}
+    {text}
   </li>
 }
 
