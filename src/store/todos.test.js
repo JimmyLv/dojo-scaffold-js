@@ -1,18 +1,18 @@
-import reducer, * as actions from './todos'
+import reducer, { addTodo, types } from './todos'
 
 describe('todos reducers', () => {
   it('should dispatch action when add todo', () => {
-    const action = actions.addTodo('new todo.')
+    const action = addTodo('new todo.')
 
     expect(action).toEqual({
-      type: actions.type.ADD,
+      type: types.ADD,
       id: 0,
-      text: 'new todo.'
+      text: 'new todo.',
     })
   })
   it('should add todo in store state', () => {
     const action = {
-      type: actions.type.ADD,
+      type: types.ADD,
       id: 1,
       text: 'new todo.',
     }
