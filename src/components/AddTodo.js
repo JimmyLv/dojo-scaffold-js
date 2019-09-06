@@ -18,7 +18,7 @@ export function AddTodo({ dispatch }) {
       value={value}
       onChange={e => setValue(e.target.value)}
     />
-    <input type="submit" value="+" />
+    <button type="submit">+</button>
   </form>
 }
 
