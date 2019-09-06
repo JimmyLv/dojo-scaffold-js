@@ -4,6 +4,7 @@ import './App.css'
 import AddTodo from './components/AddTodo'
 import FilterInfo from './components/FilterInfo'
 import TodoItem from './components/TodoItem'
+import { getVisibleTodos } from './store/todos'
 
 export function App({ todos }) {
   return (
@@ -21,7 +22,7 @@ export function App({ todos }) {
 function mapStateToProps(state) {
   console.log('state', state)
   return {
-    todos: state.todos,
+    todos: getVisibleTodos(state.filter, state.todos),
   }
 }
 

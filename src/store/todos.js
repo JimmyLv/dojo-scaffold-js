@@ -1,3 +1,5 @@
+// import { createSelector } from 'reselect'
+
 export const NAME = 'todos'
 export const types = {
   ADD: `${NAME}/ADD_TODO`,
@@ -6,6 +8,19 @@ export const types = {
 }
 
 let nextId = 0
+
+export const getVisibleTodos = (status = 'All', todos) => {
+  switch (status) {
+    case 'All':
+      return todos
+    case 'Completed':
+      return todos.filter(t => t.completed)
+    case 'Active':
+      return todos.filter(t => !t.completed)
+    default:
+      throw new Error('Unknown filter: ' + status)
+  }
+}
 
 export default {
   namespace: NAME,
@@ -49,8 +64,5 @@ export default {
       default:
         return state
     }
-  },
-  selectors: {
-    getAll: state => state[NAME],
   },
 }
