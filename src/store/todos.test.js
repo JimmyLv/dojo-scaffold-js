@@ -1,4 +1,4 @@
-import todos, { types } from './todos'
+import reducer, { types } from './todos'
 
 describe('todos reducers', () => {
   it('should add todo in store state', () => {
@@ -10,7 +10,7 @@ describe('todos reducers', () => {
       },
     }
 
-    const result = todos.reducer([], action)
+    const result = reducer([], action)
 
     expect(result).toEqual([
       { id: 1, text: 'new todo.', completed: false },
@@ -27,7 +27,7 @@ describe('todos reducers', () => {
       completed: false,
     }]
 
-    const result = todos.reducer(state, action)
+    const result = reducer(state, action)
 
     expect(result).toEqual([
       { id: 1, text: 'new todo.', completed: true },
@@ -50,7 +50,7 @@ describe('todos reducers', () => {
       },
     ]
 
-    const result = todos.reducer(state, action)
+    const result = reducer(state, action)
 
     expect(result).toEqual([
       { id: 1, text: 'new todo.', completed: true },

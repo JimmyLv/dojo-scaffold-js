@@ -1,10 +1,10 @@
 import { createStore, combineReducers } from 'redux'
-import todos from './todos'
-import filter from './filter'
+import todosReducer, * as todos from './todos'
+import filterReducer, * as filter from './filter'
 
 const rootReducer = combineReducers({
-  [todos.namespace]: todos.reducer,
-  [filter.namespace]: filter.reducer,
+  [todos.NAME]: todosReducer,
+  [filter.NAME]: filterReducer,
 })
 
 const store = createStore(rootReducer)

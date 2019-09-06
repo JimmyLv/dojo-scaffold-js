@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import todos from '../store/todos'
+import { actions } from '../store/todos'
 
 export function AddTodo({ dispatch }) {
   const [value, setValue] = useState('')
 
   const handleSubmit = e => {
-    dispatch(todos.actions.addTodo(value))
+    dispatch(actions.addTodo(value))
     setValue('')
     e.preventDefault()
   }

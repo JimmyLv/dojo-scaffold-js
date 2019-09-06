@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import filter from '../store/filter'
+import { actions } from '../store/filter'
 
 export function FilterInfo({ filters = [], dispatch }) {
   return <div>
@@ -8,7 +8,7 @@ export function FilterInfo({ filters = [], dispatch }) {
       <span key={status}>
         <a
           href={`#${status}`}
-          onClick={() => dispatch(filter.actions.setFilterStatus(status))}
+          onClick={() => dispatch(actions.setFilterStatus(status))}
         >
           {status}
         </a>

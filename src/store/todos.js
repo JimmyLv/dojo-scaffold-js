@@ -22,47 +22,45 @@ export const getVisibleTodos = (status = 'All', todos) => {
   }
 }
 
-export default {
-  namespace: NAME,
-  actions: {
-    addTodo: text => ({
-      type: types.ADD,
-      payload: {
-        id: nextId++,
-        text,
-      },
-    }),
-    toggle: id => ({
-      type: types.TOGGLE,
-      payload: { id },
-    }),
-    remove: id => ({
-      type: types.REMOVE,
-      payload: { id },
-    }),
-  },
-  reducer(state = [], action) {
-    const { type, payload } = action
-    switch (type) {
-      case types.ADD:
-        return [
-          ...state,
-          {
-            id: payload.id,
-            text: payload.text,
-            completed: false,
-          },
-        ]
-      case types.TOGGLE:
-        return state.map(todo =>
-          todo.id === payload.id
-            ? { ...todo, completed: !todo.completed }
-            : todo,
-        )
-      case types.REMOVE:
-        return state.filter(todo => todo.id !== payload.id)
-      default:
-        return state
-    }
-  },
+export const actions = {
+  addTodo: text => ({
+    type: types.ADD,
+    payload: {
+      id: nextId++,
+      text,
+    },
+  }),
+  toggle: id => ({
+    type: types.TOGGLE,
+    payload: { id },
+  }),
+  remove: id => ({
+    type: types.REMOVE,
+    payload: { id },
+  }),
+}
+
+export default function reducer(state = [], action) {
+  const { type, payload } = action
+  switch (type) {
+    case types.ADD:
+      return [
+        ...state,
+        {
+          id: payload.id,
+          text: payload.text,
+          completed: false,
+        },
+      ]
+    case types.TOGGLE:
+      return state.map(todo =>
+        todo.id === payload.id
+          ? { ...todo, completed: !todo.completed }
+          : todo,
+      )
+    case types.REMOVE:
+      return state.filter(todo => todo.id !== payload.id)
+    default:
+      return state
+  }
 }
