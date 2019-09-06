@@ -12,8 +12,10 @@ export default {
   actions: {
     addTodo: text => ({
       type: types.ADD,
-      id: nextId++,
-      text,
+      payload: {
+        id: nextId++,
+        text,
+      },
     }),
     toggle: id => ({
       type: types.TOGGLE,
@@ -21,19 +23,20 @@ export default {
     }),
   },
   reducer(state = [], action) {
-    switch (action.type) {
+    const { type, payload } = action
+    switch (type) {
       case types.ADD:
         return [
           ...state,
           {
-            id: action.id,
-            text: action.text,
+            id: payload.id,
+            text: payload.text,
             completed: false,
           },
         ]
       case types.TOGGLE:
         return state.map(todo =>
-          todo.id === action.id
+          todo.id === payload.id
             ? { ...todo, completed: !todo.completed }
             : todo,
         )
@@ -42,6 +45,6 @@ export default {
     }
   },
   selectors: {
-    getAll: state => state[NAME]
-  }
+    getAll: state => state[NAME],
+  },
 }

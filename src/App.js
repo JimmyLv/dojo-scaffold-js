@@ -9,7 +9,7 @@ export function App({ todos }) {
   return (
     <div>
       <h1>Todo</h1>
-      <FilterInfo filters={['All', 'Done']} />
+      <FilterInfo filters={['All', 'Active', 'Completed']} />
       <AddTodo />
       <p>
         {todos.map(item => <TodoItem key={item.id} {...item} />)}
