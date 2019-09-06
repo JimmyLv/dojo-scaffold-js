@@ -1,10 +1,12 @@
 // Actions
-const ADD = 'todos/ADD_TODO'
+export const type = {
+  ADD: 'todos/ADD_TODO',
+}
 
 // Action Creators
 let nextId = 0
 export const addTodo = text => ({
-  type: ADD,
+  type: type.ADD,
   id: nextId++,
   text,
 })
@@ -12,7 +14,7 @@ export const addTodo = text => ({
 // Reducers
 export default function todos(state = [], action) {
   switch (action.type) {
-    case ADD:
+    case type.ADD:
       return [
         ...state,
         {
