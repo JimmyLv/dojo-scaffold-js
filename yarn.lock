@@ -3428,6 +3428,11 @@ cyclist@~0.2.2:
   resolved "https://nexus.dev.casaba.tech/repository/npm/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
   integrity sha1-GzN5LhHpFKL9bW7WRHRkRE5fpkA=
 
+cypress-react-unit-test@^2.4.3:
+  version "2.4.3"
+  resolved "https://nexus.dev.casaba.tech/repository/npm/cypress-react-unit-test/-/cypress-react-unit-test-2.4.3.tgz#bd574e9b5070b4b1fbe4e0d9576d6b0b2c471e10"
+  integrity sha1-vVdOm1BwtLH75ODZV21rCyxHHhA=
+
 cypress@^3.4.1:
   version "3.4.1"
   resolved "https://nexus.dev.casaba.tech/repository/npm/cypress/-/cypress-3.4.1.tgz#ca2e4e9864679da686c6a6189603efd409664c30"
