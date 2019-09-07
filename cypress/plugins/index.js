@@ -46,4 +46,5 @@ const options = {
 
 module.exports = on => {
   on('file:preprocessor', webpack(options))
+  on('task', require('@cypress/code-coverage/task'))
 }

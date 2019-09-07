@@ -42,6 +42,7 @@ it('Can add, complete, uncompleted, delete an todo item and filter by status', (
   cy.get('.count').should('contain', '2')
 
   cy.contains('Completed').click()
+  cy.contains('Active').click()
 
   cy.get('li')
     .should('have.length', 1)

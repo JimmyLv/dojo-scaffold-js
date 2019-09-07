@@ -13,10 +13,10 @@ it('filter completed items', () => {
   cy.mount(<FilterInfo {...props} />)
 
   // then
-  cy.contains('Completed').click()
+  cy.contains('Active').click()
   // just verify the dispatched action
   cy.get('@dispatch').should('be.calledWith', {
     type: types.FILTER,
-    payload: { status: 'Completed' },
+    payload: { status: 'Active' },
   })
 })

@@ -6,6 +6,7 @@
   "homepage": "https://jimmylv.github.io/dojo-scaffold-js",
   "scripts": {
     "start": "react-scripts start",
+    "start-dev": "react-scripts -r @cypress/instrument-cra start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
