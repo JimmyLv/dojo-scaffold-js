@@ -1,4 +1,5 @@
 {
-  "ignoreTestFiles": "*.step.js",
-  "testFiles": "**/*.{feature,features,js}"
+  "baseUrl": "http://localhost:3000",
+  "testFiles": "**/*.{feature,features,js}",
+  "ignoreTestFiles": ["*.step.js", "*.feature"]
 }

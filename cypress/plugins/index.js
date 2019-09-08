@@ -11,7 +11,7 @@
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
 const webpack = require('@cypress/webpack-preprocessor')
-const cucumber = require('cypress-cucumber-preprocessor').default
+// const cucumber = require('cypress-cucumber-preprocessor').default
 const webpackOptions = {
   // https://webpack.js.org/configuration/node/
   // avoid winston logger problem
@@ -47,7 +47,7 @@ const options = {
 
 module.exports = on => {
   on('file:preprocessor', webpack(options))
-  on('file:preprocessor', cucumber())
+  // on('file:preprocessor', cucumber())
   // custom tasks for sending and reporting code coverage
   // on('task', require('@cypress/code-coverage/task'))
   // this line instruments spec files and loaded unit test code
