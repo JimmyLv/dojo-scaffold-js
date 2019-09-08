@@ -17,6 +17,7 @@ describe('todo item', () => {
 
     // then
     cy.contains('test item')
+      .toMatchImageSnapshot()
   })
 
   it('marks done items', () => {

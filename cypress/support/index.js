@@ -16,6 +16,8 @@
 // Import commands.js using ES2015 syntax:
 import 'cypress-react-unit-test'
 import 'cypress-jest-adapter'
+import 'cypress-plugin-snapshots/commands'
+
 // import '@cypress/code-coverage/support'
 
 import './commands'

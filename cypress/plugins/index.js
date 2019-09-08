@@ -12,12 +12,14 @@
 // the project's config changing)
 const webpack = require('@cypress/webpack-preprocessor')
 // const cucumber = require('cypress-cucumber-preprocessor').default
+const { initPlugin } = require('cypress-plugin-snapshots/plugin')
+
 const webpackOptions = {
   // https://webpack.js.org/configuration/node/
   // avoid winston logger problem
   // https://github.com/percy/percy-cypress/issues/58
   node: {
-    fs: 'empty'
+    fs: 'empty',
   },
   module: {
     rules: [
@@ -26,27 +28,31 @@ const webpackOptions = {
         loader: 'babel-loader',
         options: {
           presets: ['@babel/preset-env', '@babel/preset-react'],
-          plugins: ['@babel/plugin-proposal-class-properties']
-        }
+          plugins: [
+            '@babel/plugin-proposal-class-properties',
+            '@babel/plugin-transform-runtime',
+          ],
+        },
       },
       {
         test: /\.css$/,
         exclude: [/node_modules/],
-        use: ['style-loader', 'css-loader']
-      }
-    ]
-  }
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
 }
 
 const options = {
   // send in the options from your webpack.config.js, so it works the same
   // as your app's code
   webpackOptions,
-  watchOptions: {}
+  watchOptions: {},
 }
 
-module.exports = on => {
-  on('file:preprocessor', webpack(options))
+module.exports = (on, config) => {
+  initPlugin(on, config)
+  // on('file:preprocessor', webpack(options))
   // on('file:preprocessor', cucumber())
   // custom tasks for sending and reporting code coverage
   // on('task', require('@cypress/code-coverage/task'))
@@ -55,4 +61,5 @@ module.exports = on => {
     'file:preprocessor',
     require('@cypress/code-coverage/use-browserify-istanbul')
   )*/
+  return config
 }
