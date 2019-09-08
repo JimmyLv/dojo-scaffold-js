@@ -49,10 +49,10 @@ module.exports = on => {
   on('file:preprocessor', webpack(options))
   on('file:preprocessor', cucumber())
   // custom tasks for sending and reporting code coverage
-  on('task', require('@cypress/code-coverage/task'))
+  // on('task', require('@cypress/code-coverage/task'))
   // this line instruments spec files and loaded unit test code
-  on(
+  /*on(
     'file:preprocessor',
     require('@cypress/code-coverage/use-browserify-istanbul')
-  )
+  )*/
 }
