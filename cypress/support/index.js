@@ -17,7 +17,7 @@
 import 'cypress-react-unit-test'
 import 'cypress-jest-adapter'
 import 'cypress-plugin-snapshots/commands'
-
+// import 'cypress-skip-and-only-ui/support'
 // import '@cypress/code-coverage/support'
 
 import './commands'
