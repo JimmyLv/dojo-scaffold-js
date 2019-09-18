@@ -1,43 +1,27 @@
-import reducer, { types } from './todos'
+import reducer, { actions } from './todos'
 
 describe('todos reducers', () => {
   it('should add todo in store state', () => {
-    const action = {
-      type: types.ADD,
-      payload: {
-        id: 1,
-        text: 'new todo.',
-      },
-    }
-
-    const result = reducer([], action)
+    const result = reducer([], actions.addTodo('new todo.'))
 
     expect(result).toEqual([
-      { id: 1, text: 'new todo.', completed: false },
+      { id: 0, text: 'new todo.', completed: false },
     ])
   })
   it('should toggle todo status in store state', () => {
-    const action = {
-      type: types.TOGGLE,
-      payload: { id: 1 },
-    }
     const state = [{
       id: 1,
       text: 'new todo.',
       completed: false,
     }]
 
-    const result = reducer(state, action)
+    const result = reducer(state, actions.toggle(1))
 
     expect(result).toEqual([
       { id: 1, text: 'new todo.', completed: true },
     ])
   })
   it('should remove todo in store state', () => {
-    const action = {
-      type: types.REMOVE,
-      payload: { id: 2 },
-    }
     const state = [
       {
         id: 1,
@@ -50,7 +34,7 @@ describe('todos reducers', () => {
       },
     ]
 
-    const result = reducer(state, action)
+    const result = reducer(state, actions.remove(2))
 
     expect(result).toEqual([
       { id: 1, text: 'new todo.', completed: true },

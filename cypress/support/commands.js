@@ -23,3 +23,20 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+import React from 'react'
+import { Provider } from 'react-redux'
+import configureMockStore from 'redux-mock-store'
+
+// this is a handy function that I normally make available for all my tests
+// that deal with connected components.
+// you can provide initialState or the entire store that the ui is rendered with
+const mockStore = configureMockStore()
+
+Cypress.Commands.add('mountWithRedux', (
+  ui,
+  data = {},
+) => {
+  const { initialState, store = mockStore(initialState) } = data
+  cy.spy(store, 'dispatch').as('dispatch')
+  cy.mount(<Provider store={store}>{ui}</Provider>)
+})

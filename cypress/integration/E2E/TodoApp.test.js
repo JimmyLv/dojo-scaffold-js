@@ -24,10 +24,11 @@ it('Can add, complete, uncompleted, delete an todo item and filter by status', (
 
   cy.contains('Get eggs')
     .click()
+    .parent()
     .should('have.css', 'text-decoration', 'line-through solid rgb(217, 217, 217)')
 
   cy.contains('Buy milk')
-    .children('.delete')
+    .siblings('.delete')
     .click()
 
   cy.get('li')
