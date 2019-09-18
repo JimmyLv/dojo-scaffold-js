@@ -1,0 +1,3 @@
+exports[`TodoItem Component > shows an item #0`] = `
+<span>test item </span>
+`;

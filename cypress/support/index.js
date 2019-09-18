@@ -17,8 +17,8 @@ import 'cypress-jest-adapter'
 import 'cypress-plugin-snapshots/commands'
 
 import 'cypress-react-unit-test'
-import * as ReactDOM from 'react-dom'
 import './commands'
+import fixReactDomScope from './fixReactDomScope'
 
 // Import commands.js using ES2015 syntax:
 // import 'cypress-skip-and-only-ui/support'
@@ -33,14 +33,8 @@ Cypress.on('window:load', win => {
   win.ReactDOM = window.ReactDOM || win.ReactDOM
 })
 
-export function fixReactDomScope(win) {
-  if (win.ReactDOM !== ReactDOM) {
-    win.ReactDOM = ReactDOM
-  }
-}
-
-export const fixCypressSpec = (filename, window) => () => {
-  fixReactDomScope(window)
+export const fixCypressSpec = (filename, win) => () => {
+  fixReactDomScope(win)
   const path = require('path')
   const relative = filename.substr(1) // removes leading "/"
   const projectRoot = Cypress.config('projectRoot')

@@ -10,7 +10,7 @@ const StyledItem = styled.li.attrs(props => ({
   text-decoration: ${props => props.completed ? 'line-through' : undefined};
 `
 
-export function TodoItem({ id, text, completed }) {
+function TodoItem({ id, text, completed }) {
   const dispatch = useDispatch()
   return <StyledItem completed={completed}>
     <span onClick={() => dispatch(actions.toggle(id))}>{`${text} `}</span>
