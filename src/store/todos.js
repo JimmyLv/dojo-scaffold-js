@@ -1,4 +1,4 @@
-// import { createSelector } from 'reselect'
+import { createSelector } from 'reselect'
 
 export const NAME = 'todos'
 export const types = {
@@ -9,7 +9,12 @@ export const types = {
 
 let nextId = 0
 
-export const getVisibleTodos = (status = 'All', todos) => {
+const getVisibilityFilter = (state) => state.filter
+const getTodos = (state) => state.todos
+
+export const getVisibleTodos = createSelector(
+  [ getVisibilityFilter, getTodos ],
+  (status = 'All', todos) => {
   switch (status) {
     case 'All':
       return todos
@@ -20,7 +25,7 @@ export const getVisibleTodos = (status = 'All', todos) => {
     default:
       throw new Error('Unknown filter: ' + status)
   }
-}
+})
 
 export const actions = {
   addTodo: text => ({

@@ -22,7 +22,7 @@ export function App({ todos }) {
 function mapStateToProps(state) {
   console.log('state', state)
   return {
-    todos: getVisibleTodos(state.filter, state.todos),
+    todos: getVisibleTodos(state),
   }
 }
 
