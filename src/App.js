@@ -5,16 +5,23 @@ import AddTodo from './components/AddTodo'
 import FilterInfo from './components/FilterInfo'
 import MessageList from './components/MessageList'
 import NewMessageForm from './components/NewMessageForm'
-import TodoItem from './components/TodoItem'
-import { getVisibleTodos } from './store/todos'
+import TodoList from './components/TodoList'
+import { getVisibleTodos, actions } from './store/todos'
 
 export class App extends Component {
   state = {
     messages: [],
   }
+
+  componentDidMount() {
+    const { dispatch } = this.props
+    dispatch(actions.fetchTodos())
+  }
+
   render() {
     const { todos } = this.props
     const { messages } = this.state
+
     return (
       <div>
         <h1>
@@ -22,11 +29,7 @@ export class App extends Component {
         </h1>
         <FilterInfo filters={['All', 'Active', 'Completed']} />
         <AddTodo />
-        <p>
-          {todos.map(item => (
-            <TodoItem key={item.id} {...item} />
-          ))}
-        </p>
+        <TodoList todos={todos} />
         <hr />
         <div>
           <NewMessageForm onSend={this.handleSend} />

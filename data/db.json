@@ -2,11 +2,13 @@
   "todos": [
     {
       "id": 1,
-      "task": "read something"
+      "text": "read something",
+      "completed": false
     },
     {
       "id": 2,
-      "task": "write something"
+      "text": "write something",
+      "completed": true
     }
   ],
   "comments": [
