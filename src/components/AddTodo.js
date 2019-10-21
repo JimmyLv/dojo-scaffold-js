@@ -11,15 +11,20 @@ export function AddTodo({ dispatch }) {
     e.preventDefault()
   }
 
-  return <form onSubmit={handleSubmit}>
-    <input
-      type="text"
-      placeholder={'Do that thing...'}
-      value={value}
-      onChange={e => setValue(e.target.value)}
-    />
-    <button type="submit">+</button>
-  </form>
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        data-testid="todoText"
+        placeholder={'Do that thing...'}
+        value={value}
+        onChange={e => setValue(e.target.value)}
+      />
+      <button type="submit" data-testid="addTodo">
+        +
+      </button>
+    </form>
+  )
 }
 
 export default connect()(AddTodo)

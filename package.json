@@ -9,12 +9,13 @@
     "start-dev": "react-scripts -r @cypress/instrument-cra start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "mock": "json-server --watch data/db.json --routes data/routes.json",
+    "mock": "json-server --watch data/db.json --routes data/routes.json --port 8080",
     "cypress": "cypress open",
     "eject": "react-scripts eject",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build"
   },
+  "proxy": "http://localhost:8080",
   "dependencies": {
     "@types/jest": "^24.0.18",
     "@types/node": "^12.7.4",

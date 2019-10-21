@@ -1,55 +1,52 @@
-beforeEach(() => {
-  cy.visit('http://localhost:3000/')
-})
+describe('TodoApp', () => {
+  const addTodo = (text = 'Get eggs') => {
+    // Given When Then
+    cy.findByTestId('todoText').type(text)
+    cy.findByTestId('addTodo').click()
+    cy.get('li').should('contain', text)
+  }
 
-it('Can add, complete, uncompleted, delete an todo item and filter by status', () => {
-  // Given When Then
-  cy.get('[type="text"]')
-    .type('Get eggs')
+  beforeEach(() => {
+    cy.visit('http://localhost:3000/')
+    addTodo()
+  })
 
-  cy.get('button')
-    .click()
+  it('Can add and delete an todo item', () => {
+    addTodo('Buy milk')
 
-  cy.get('li:first')
-    .should('contain', 'Get eggs')
+    cy.get('li').should('have.length', 2)
 
-  cy.get('[type="text"]')
-    .type('Buy milk')
+    cy.contains('Buy milk')
+      .siblings('.delete')
+      .click()
 
-  cy.get('button')
-    .click()
+    cy.get('li').should('have.length', 1)
+  })
 
-  cy.get('li')
-    .should('have.length', 2)
+  it('should toggle completed status', () => {
+    cy.contains('Get eggs')
+      .click()
+      .parent()
+      .should(
+        'have.css',
+        'text-decoration',
+        'line-through solid rgb(217, 217, 217)'
+      )
+  })
 
-  cy.contains('Get eggs')
-    .click()
-    .parent()
-    .should('have.css', 'text-decoration', 'line-through solid rgb(217, 217, 217)')
+  it('should filter todos by status', () => {
+    addTodo('Buy Apple')
+    cy.contains('Get eggs').click()
 
-  cy.contains('Buy milk')
-    .siblings('.delete')
-    .click()
+    cy.get('.count').should('contain', '2')
 
-  cy.get('li')
-    .should('have.length', 1)
+    cy.contains('Completed').click()
+    cy.get('li').should('have.length', 1)
 
-  cy.get('[type="text"]')
-    .type('Buy Apple')
+    cy.contains('Active').click()
+    cy.get('li').should('have.length', 1)
 
-  cy.get('button')
-    .click()
-
-  cy.get('.count').should('contain', '2')
-
-  cy.contains('Completed').click()
-  cy.contains('Active').click()
-
-  cy.get('li')
-    .should('have.length', 1)
-
-  cy.contains('All').click()
-
-  cy.get('li')
-    .should('have.length', 2)
+    cy.contains('All').click()
+    cy.get('li').should('have.length', 2)
+  })
 })
