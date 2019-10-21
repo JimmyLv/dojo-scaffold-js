@@ -9,7 +9,7 @@
     "start-dev": "react-scripts -r @cypress/instrument-cra start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "mock": "json-server --watch data/db.json --port 8080",
+    "mock": "json-server --watch data/db.json --routes data/routes.json",
     "cypress": "cypress open",
     "eject": "react-scripts eject",
     "predeploy": "yarn build",
