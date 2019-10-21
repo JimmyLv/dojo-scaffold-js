@@ -6,7 +6,7 @@ import FilterInfo from './components/FilterInfo'
 import MessageList from './components/MessageList'
 import NewMessageForm from './components/NewMessageForm'
 import TodoList from './components/TodoList'
-import { getVisibleTodos, actions } from './store/todo'
+import { actions, selectors } from './store/todo'
 
 export class App extends Component {
   state = {
@@ -49,7 +49,7 @@ export class App extends Component {
 function mapStateToProps(state) {
   console.log('state', state)
   return {
-    todos: getVisibleTodos(state),
+    todos: selectors.getVisibleTodos(state),
   }
 }
 

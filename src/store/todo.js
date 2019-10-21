@@ -16,21 +16,23 @@ let nextId = 3
 const getVisibilityFilter = state => state.filter
 const getTodos = state => state.todos
 
-export const getVisibleTodos = createSelector(
-  [getVisibilityFilter, getTodos],
-  (status = 'All', todos) => {
-    switch (status) {
-      case 'All':
-        return todos
-      case 'Completed':
-        return todos.filter(t => t.completed)
-      case 'Active':
-        return todos.filter(t => !t.completed)
-      default:
-        throw new Error('Unknown filter: ' + status)
+export const selectors = {
+  getVisibleTodos: createSelector(
+    [getVisibilityFilter, getTodos],
+    (status = 'All', todos) => {
+      switch (status) {
+        case 'All':
+          return todos
+        case 'Completed':
+          return todos.filter(t => t.completed)
+        case 'Active':
+          return todos.filter(t => !t.completed)
+        default:
+          throw new Error('Unknown filter: ' + status)
+      }
     }
-  }
-)
+  ),
+}
 
 export const actions = {
   addTodo: text => ({
