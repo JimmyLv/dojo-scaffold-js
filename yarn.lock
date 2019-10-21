@@ -880,6 +880,13 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
+"@babel/runtime@^7.6.2":
+  version "7.6.3"
+  resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.6.3.tgz#935122c74c73d2240cafd32ddb5fc2a6cd35cf1f"
+  integrity sha1-k1Eix0xz0iQMr9Mt21/Cps01zx8=
+  dependencies:
+    regenerator-runtime "^0.13.2"
+
 "@babel/template@^7.1.0", "@babel/template@^7.4.0", "@babel/template@^7.4.4":
   version "7.4.4"
   resolved "https://nexus.dev.casaba.tech/repository/npm/@babel/template/-/template-7.4.4.tgz#f4b88d1225689a08f5bc3a17483545be9e4ed237"
@@ -1462,6 +1469,11 @@
   resolved "https://nexus.dev.casaba.tech/repository/npm/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha1-K1o6s/kYzKSKjHVMCBaOPwPrphs=
 
+"@sheerun/mutationobserver-shim@^0.3.2":
+  version "0.3.2"
+  resolved "https://registry.npm.taobao.org/@sheerun/mutationobserver-shim/download/@sheerun/mutationobserver-shim-0.3.2.tgz#8013f2af54a2b7d735f71560ff360d3a8176a87b"
+  integrity sha1-gBPyr1Sit9c19xVg/zYNOoF2qHs=
+
 "@svgr/babel-plugin-add-jsx-attribute@^4.2.0":
   version "4.2.0"
   resolved "https://nexus.dev.casaba.tech/repository/npm/@svgr/babel-plugin-add-jsx-attribute/-/babel-plugin-add-jsx-attribute-4.2.0.tgz#dadcb6218503532d6884b210e7f3c502caaa44b1"
@@ -1565,6 +1577,27 @@
     "@svgr/plugin-svgo" "^4.3.1"
     loader-utils "^1.2.3"
 
+"@testing-library/cypress@^5.0.2":
+  version "5.0.2"
+  resolved "https://registry.npm.taobao.org/@testing-library/cypress/download/@testing-library/cypress-5.0.2.tgz#68746fc9db11dabcc4bf883e25b64316f637be71"
+  integrity sha1-aHRvydsR2rzEv4g+JbZDFvY3vnE=
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+    "@testing-library/dom" "^6.0.0"
+    "@types/testing-library__cypress" "^5.0.0"
+
+"@testing-library/dom@^6.0.0":
+  version "6.8.1"
+  resolved "https://registry.npm.taobao.org/@testing-library/dom/download/@testing-library/dom-6.8.1.tgz#47b4e0cc0742302fc9d122ac43010e6fc60bee65"
+  integrity sha1-R7TgzAdCMC/J0SKsQwEOb8YL7mU=
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@sheerun/mutationobserver-shim" "^0.3.2"
+    "@types/testing-library__dom" "^6.0.0"
+    aria-query "3.0.0"
+    pretty-format "^24.9.0"
+    wait-for-expect "^3.0.0"
+
 "@types/babel__core@^7.1.0":
   version "7.1.2"
   resolved "https://nexus.dev.casaba.tech/repository/npm/@types/babel__core/-/babel__core-7.1.2.tgz#608c74f55928033fce18b99b213c16be4b3d114f"
@@ -1643,6 +1676,13 @@
   dependencies:
     "@types/jest-diff" "*"
 
+"@types/jquery@*":
+  version "3.3.31"
+  resolved "https://registry.npm.taobao.org/@types/jquery/download/@types/jquery-3.3.31.tgz#27c706e4bf488474e1cb54a71d8303f37c93451b"
+  integrity sha1-J8cG5L9IhHThy1SnHYMD83yTRRs=
+  dependencies:
+    "@types/sizzle" "*"
+
 "@types/json-schema@^7.0.3":
   version "7.0.3"
   resolved "https://nexus.dev.casaba.tech/repository/npm/@types/json-schema/-/json-schema-7.0.3.tgz#bdfd69d61e464dcc81b25159c270d75a73c1a636"
@@ -1688,10 +1728,30 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
+"@types/sizzle@*":
+  version "2.3.2"
+  resolved "https://registry.npm.taobao.org/@types/sizzle/download/@types/sizzle-2.3.2.tgz#a811b8c18e2babab7d542b3365887ae2e4d9de47"
+  integrity sha1-qBG4wY4rq6t9VCszZYh64uTZ3kc=
+
 "@types/stack-utils@^1.0.1":
   version "1.0.1"
   resolved "https://nexus.dev.casaba.tech/repository/npm/@types/stack-utils/-/stack-utils-1.0.1.tgz#0a851d3bd96498fa25c33ab7278ed3bd65f06c3e"
   integrity sha1-CoUdO9lkmPolwzq3J47TvWXwbD4=
+
+"@types/testing-library__cypress@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.npm.taobao.org/@types/testing-library__cypress/download/@types/testing-library__cypress-5.0.0.tgz#23586b6183a504c59fbd716ba2bd2d5a909528e6"
+  integrity sha1-I1hrYYOlBMWfvXFror0tWpCVKOY=
+  dependencies:
+    "@types/jquery" "*"
+    "@types/testing-library__dom" "*"
+
+"@types/testing-library__dom@*", "@types/testing-library__dom@^6.0.0":
+  version "6.5.3"
+  resolved "https://registry.npm.taobao.org/@types/testing-library__dom/download/@types/testing-library__dom-6.5.3.tgz#4a33e91055994c9f08981253edec44c85f4dd7f0"
+  integrity sha1-SjPpEFWZTJ8ImBJT7exEyF9N1/A=
+  dependencies:
+    pretty-format "^24.3.0"
 
 "@types/yargs-parser@*":
   version "13.0.0"
@@ -2125,7 +2185,7 @@ argparse@^1.0.7:
   dependencies:
     sprintf-js "~1.0.2"
 
-aria-query@^3.0.0:
+aria-query@3.0.0, aria-query@^3.0.0:
   version "3.0.0"
   resolved "https://nexus.dev.casaba.tech/repository/npm/aria-query/-/aria-query-3.0.0.tgz#65b3fcc1ca1155a8c9ae64d6eee297f15d5133cc"
   integrity sha1-ZbP8wcoRVajJrmTW7uKX8V1RM8w=
@@ -9804,7 +9864,7 @@ pretty-error@^2.1.1:
     renderkid "^2.0.1"
     utila "~0.4"
 
-pretty-format@^24.9.0:
+pretty-format@^24.3.0, pretty-format@^24.9.0:
   version "24.9.0"
   resolved "https://nexus.dev.casaba.tech/repository/npm/pretty-format/-/pretty-format-24.9.0.tgz#12fac31b37019a4eea3c11aa9a959eb7628aa7c9"
   integrity sha1-EvrDGzcBmk7qPBGqmpWet2KKp8k=
@@ -12232,6 +12292,11 @@ w3c-xmlserializer@^1.1.2:
     domexception "^1.0.1"
     webidl-conversions "^4.0.2"
     xml-name-validator "^3.0.0"
+
+wait-for-expect@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.npm.taobao.org/wait-for-expect/download/wait-for-expect-3.0.0.tgz#d6fbf28959e3b8779dc172fb1ea56bf1e833bf7a"
+  integrity sha1-1vvyiVnjuHedwXL7HqVr8egzv3o=
 
 walker@^1.0.7, walker@~1.0.5:
   version "1.0.7"

@@ -5,7 +5,6 @@ import TodoItem from '../../../src/components/TodoItem'
 import * as filter from '../../../src/store/filter'
 import * as todos from '../../../src/store/todos'
 import { fixCypressSpec } from '../../support'
-import fixReactDomScope from '../../support/fixReactDomScope'
 
 beforeEach(fixCypressSpec(__filename, window))
 
@@ -83,8 +82,6 @@ describe('TodoItem Component', () => {
 })
 
 describe('AddTodo Component', () => {
-  // beforeEach(() => { fixReactDomScope(window) })
-
   it('add new todo item', () => {
     // given
     const TODO_ITEM = 'new todo.'
@@ -104,12 +101,6 @@ describe('AddTodo Component', () => {
 })
 
 describe('FilterInfo Component', () => {
-  // beforeEach(fixCypressSpec(__filename, window))
-  beforeEach(function() {
-    // see https://github.com/bahmutov/cypress-react-unit-test/issues/51
-    fixReactDomScope(window);
-  });
-
   it('filter completed items', () => {
     // given
     const props = {

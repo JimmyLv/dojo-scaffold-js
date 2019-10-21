@@ -26,6 +26,7 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
+import '@testing-library/cypress/add-commands'
 
 // this is a handy function that I normally make available for all my tests
 // that deal with connected components.
