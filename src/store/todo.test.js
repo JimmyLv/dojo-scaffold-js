@@ -1,15 +1,6 @@
-import reducer, { actions } from './todos'
+import reducer, { actions } from './todo'
 
 describe('todos reducers', () => {
-  it.skip('should fetch all todos from api', () => {
-    fetch.mockResponse(
-      JSON.stringify([{ id: 0, text: 'new todo.', completed: false }])
-    )
-
-    const result = reducer([], actions.fetchTodos())
-
-    expect(result).toBe([{ id: 0, text: 'new todo.', completed: false }])
-  })
   it('should add todo in store state', () => {
     const result = reducer([], actions.addTodo('new todo.'))
 

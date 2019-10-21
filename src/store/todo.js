@@ -1,8 +1,11 @@
+import { call, put, takeEvery } from '@redux-saga/core/effects'
 import { createSelector } from 'reselect'
+import * as TodoApi from '../apis/todos'
 
 export const NAME = 'todos'
 export const types = {
   FETCH: `${NAME}/FETCH_TODOS`,
+  UPDATE: `${NAME}/UPDATE_TODOS`,
   ADD: `${NAME}/ADD_TODO`,
   TOGGLE: `${NAME}/TOGGLE_TODO`,
   REMOVE: `${NAME}/REMOVE_TODO`,
@@ -45,23 +48,31 @@ export const actions = {
     type: types.REMOVE,
     payload: { id },
   }),
-  fetchTodos() {
-    return async dispatch => {
-      const response = await fetch('/api/todos')
-      const todos = await response.json()
-      return dispatch({
-        type: types.FETCH,
-        payload: { todos },
-      })
+  fetchTodos: () => ({
+    type: types.FETCH,
+  }),
+  updateTodos: todos => ({
+    type: types.UPDATE,
+    payload: { todos },
+  }),
+}
+
+export function* sagas() {
+  function* fetchPosts(pagination) {
+    try {
+      const todos = yield call(TodoApi.query, pagination)
+      yield put(actions.updateTodos(todos))
+    } catch (error) {
+      yield put({ type: 'FETCH_ERROR', error })
     }
-  },
+  }
+  yield takeEvery(types.FETCH, fetchPosts)
 }
 
 export default function reducer(state = [], action) {
   const { type, payload } = action
   switch (type) {
-    case types.FETCH:
-      console.log('response', payload)
+    case types.UPDATE:
       return [...state, ...payload.todos]
     case types.ADD:
       return [

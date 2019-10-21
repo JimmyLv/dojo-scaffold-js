@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { actions } from '../store/todos'
+import { actions } from '../store/todo'
 
 export function AddTodo({ dispatch }) {
   const [value, setValue] = useState('')

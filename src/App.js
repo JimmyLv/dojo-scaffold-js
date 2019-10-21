@@ -6,7 +6,7 @@ import FilterInfo from './components/FilterInfo'
 import MessageList from './components/MessageList'
 import NewMessageForm from './components/NewMessageForm'
 import TodoList from './components/TodoList'
-import { getVisibleTodos, actions } from './store/todos'
+import { getVisibleTodos, actions } from './store/todo'
 
 export class App extends Component {
   state = {
