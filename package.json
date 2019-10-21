@@ -9,6 +9,7 @@
     "start-dev": "react-scripts -r @cypress/instrument-cra start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "mock": "json-server --watch data/db.json --port 8080",
     "cypress": "cypress open",
     "eject": "react-scripts eject",
     "predeploy": "yarn build",
@@ -67,6 +68,7 @@
     "eslint-plugin-prettier": "^3.1.1",
     "gh-pages": "^2.1.1",
     "istanbul-lib-coverage": "^2.0.5",
+    "json-server": "^0.15.1",
     "nyc": "^14.1.1",
     "prettier": "1.18.2",
     "redux-mock-store": "^1.5.3"

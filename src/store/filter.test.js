@@ -1,7 +1,7 @@
-import reducer from './filter'
+import reducer, { actions } from './filter'
 
 it('should set filter status in store', () => {
-  const action = { type: 'filter/SET_FILTER', payload: { status: 'Completed' } }
+  const action = actions.setFilterStatus('Completed')
 
   const result = reducer(undefined, action)
 

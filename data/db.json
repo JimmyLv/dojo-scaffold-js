@@ -1,0 +1,16 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "task": "read something"
+    },
+    {
+      "id": 2,
+      "task": "write something"
+    }
+  ],
+  "comments": [
+    { "id": 1, "body": "some comment", "postId": 1 }
+  ],
+  "profile": { "name": "typicode" }
+}
