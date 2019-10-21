@@ -3,25 +3,44 @@ import { connect } from 'react-redux'
 import './App.css'
 import AddTodo from './components/AddTodo'
 import FilterInfo from './components/FilterInfo'
+import MessageList from './components/MessageList'
 import NewMessageForm from './components/NewMessageForm'
 import TodoItem from './components/TodoItem'
 import { getVisibleTodos } from './store/todos'
 
-export function App({ todos }) {
-  return (
-    <div>
-      <h1>Todo (<span className="count">{todos.length}</span>)</h1>
-      <FilterInfo filters={['All', 'Active', 'Completed']} />
-      <AddTodo />
-      <p>
-        {todos.map(item => <TodoItem key={item.id} {...item} />)}
-      </p>
-      <hr />
+export class App extends Component {
+  state = {
+    messages: [],
+  }
+  render() {
+    const { todos } = this.props
+    const { messages } = this.state
+    return (
       <div>
-        <NewMessageForm />
+        <h1>
+          Todos (<span className="count">{todos.length}</span>)
+        </h1>
+        <FilterInfo filters={['All', 'Active', 'Completed']} />
+        <AddTodo />
+        <p>
+          {todos.map(item => (
+            <TodoItem key={item.id} {...item} />
+          ))}
+        </p>
+        <hr />
+        <div>
+          <NewMessageForm onSend={this.handleSend} />
+          <MessageList messages={messages} />
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
+
+  handleSend = newMessage => {
+    this.setState(state => ({
+      messages: [...state.messages, newMessage],
+    }))
+  }
 }
 
 function mapStateToProps(state) {

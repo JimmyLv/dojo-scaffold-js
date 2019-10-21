@@ -30,6 +30,10 @@ export default class NewMessageForm extends Component {
   }
 
   handleSend = () => {
+    const { onSend } = this.props
+    const { inputText } = this.state
+
+    onSend(inputText)
     this.setState({
       inputText: '',
     })

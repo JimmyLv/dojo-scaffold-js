@@ -1,10 +1,10 @@
 describe('Sending a message', () => {
   it('should show new added message on the list', () => {
     cy.visit(' http://localhost:3000/')
-    cy.findByTestId('messageText').type('NewMessage')
+    cy.findByTestId('messageText').type('New Message')
     cy.findByTestId('sendButton').click()
 
     cy.findByTestId('messageText').should('have.value', '')
-    cy.contains('NewMessage')
+    cy.contains('New Message')
   })
 })
