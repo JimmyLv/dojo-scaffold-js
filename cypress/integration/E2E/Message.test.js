@@ -1,6 +1,6 @@
 describe('Sending a message', () => {
   it('should show new added message on the list', () => {
-    cy.visit(' http://localhost:3000/')
+    cy.visit('/')
     cy.findByTestId('messageText').type('New Message')
     cy.findByTestId('sendButton').click()
 

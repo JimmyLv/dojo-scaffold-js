@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import './App.css'
 import AddTodo from './components/AddTodo'
+import Cart from './components/Cart'
 import FilterInfo from './components/FilterInfo'
 import MessageList from './components/MessageList'
 import NewMessageForm from './components/NewMessageForm'
@@ -35,6 +36,8 @@ export class App extends Component {
           <NewMessageForm onSend={this.handleSend} />
           <MessageList messages={messages} />
         </div>
+        <hr />
+        <Cart />
       </div>
     )
   }

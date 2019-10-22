@@ -1,8 +1,9 @@
 {
-  "baseUrl": "http://localhost:3000",
+  "baseUrl": "http://0.0.0.0:3000",
   "testFiles": "**/*.{feature,features,js}",
   "ignoreTestFiles": [
-    "*.step.js", "*.feature",
+    "*.step.js",
+    "*.feature",
     "**/__snapshots__/*",
     "**/__image_snapshots__/*"
   ]

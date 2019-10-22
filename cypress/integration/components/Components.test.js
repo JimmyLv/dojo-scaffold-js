@@ -3,13 +3,12 @@ import AddTodo from '../../../src/components/AddTodo'
 import FilterInfo from '../../../src/components/FilterInfo'
 import TodoItem from '../../../src/components/TodoItem'
 import * as filter from '../../../src/store/filter'
-import * as todos from '../../../src/store/todos'
+import * as todos from '../../../src/store/todo'
 import { fixCypressSpec } from '../../support'
 
 beforeEach(fixCypressSpec(__filename, window))
 
 describe('TodoItem Component', () => {
-
   it('shows an item', () => {
     // given
     const props = {
@@ -22,8 +21,7 @@ describe('TodoItem Component', () => {
     cy.mountWithRedux(<TodoItem {...props} />)
 
     // then
-    cy.contains('test item')
-      .toMatchImageSnapshot()
+    cy.contains('test item').toMatchImageSnapshot()
   })
 
   it('marks done items', () => {
@@ -38,7 +36,9 @@ describe('TodoItem Component', () => {
     cy.mountWithRedux(<TodoItem {...props} />)
 
     // then
-    cy.contains('test item').parent().should('have.class', 'done')
+    cy.contains('test item')
+      .parent()
+      .should('have.class', 'done')
   })
 
   it('toggle completed on click', () => {
@@ -72,7 +72,9 @@ describe('TodoItem Component', () => {
     cy.mountWithRedux(<TodoItem {...props} />)
 
     // then
-    cy.contains('test item').siblings('.delete').click()
+    cy.contains('test item')
+      .siblings('.delete')
+      .click()
     // just verify the dispatched action
     cy.get('@dispatch').should('be.calledWith', {
       type: todos.types.REMOVE,
