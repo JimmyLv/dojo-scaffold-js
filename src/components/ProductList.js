@@ -33,5 +33,5 @@ export default function ProductList({ products, onProductChange }) {
 const ProductItem = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 `
