@@ -20,9 +20,9 @@ export default class AddModal extends Component {
             value={newProduct}
             onChange={this.handleChange}
           />
-          <button data-testid="addProduct" onClick={this.handleAdd}>
+          <Button data-testid="addProduct" onClick={this.handleAdd}>
             Save
-          </button>
+          </Button>
         </Content>
       </>
     )
@@ -43,6 +43,11 @@ export default class AddModal extends Component {
   }
 }
 
+const Button = styled.button`
+  margin-left: 10px;
+  background: #000;
+  color: #fff;
+`
 const Background = styled.div`
   position: fixed;
   left: 0;

@@ -33,10 +33,7 @@ import '@testing-library/cypress/add-commands'
 // you can provide initialState or the entire store that the ui is rendered with
 const mockStore = configureMockStore()
 
-Cypress.Commands.add('mountWithRedux', (
-  ui,
-  data = {},
-) => {
+Cypress.Commands.add('mountWithRedux', (ui, data = {}) => {
   const { initialState, store = mockStore(initialState) } = data
   cy.spy(store, 'dispatch').as('dispatch')
   cy.mount(<Provider store={store}>{ui}</Provider>)

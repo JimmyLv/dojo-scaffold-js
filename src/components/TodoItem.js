@@ -3,13 +3,6 @@ import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import { actions } from '../store/todo'
 
-const StyledItem = styled.li.attrs(props => ({
-  className: props.completed ? 'done' : undefined,
-}))`
-  color: ${props => (props.completed ? '#d9d9d9' : '#000')};
-  text-decoration: ${props => (props.completed ? 'line-through' : undefined)};
-`
-
 function TodoItem({ id, text, completed }) {
   const dispatch = useDispatch()
   return (
@@ -21,5 +14,12 @@ function TodoItem({ id, text, completed }) {
     </StyledItem>
   )
 }
+
+const StyledItem = styled.li.attrs(props => ({
+  className: props.completed ? 'done' : undefined,
+}))`
+  color: ${props => (props.completed ? '#d9d9d9' : '#000')};
+  text-decoration: ${props => (props.completed ? 'line-through' : undefined)};
+`
 
 export default TodoItem
