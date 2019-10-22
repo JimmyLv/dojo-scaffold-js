@@ -35,8 +35,13 @@ export default class AddModal extends Component {
   }
   handleAdd = () => {
     const { newProduct } = this.state
-    const { onAddProduct } = this.props
+    if (!newProduct) {
+      return
+    }
+
+    const { onAddProduct, toggleModal } = this.props
     onAddProduct(newProduct)
+    toggleModal()
     this.setState({
       newProduct: '',
     })

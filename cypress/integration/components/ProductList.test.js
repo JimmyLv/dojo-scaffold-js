@@ -1,23 +1,10 @@
 import React from 'react'
-import ProductList from '../../../src/components/ProductList'
+import { list } from './ProductList.stories'
 
 describe('<ProductList/>', () => {
-  function generate(code) {
-    return {
-      code: code,
-      price: 100,
-      count: 2,
-    }
-  }
-
   beforeEach(() => {
-    const handleProductChange = cy.spy().as('handleProductChange')
-    cy.mount(
-      <ProductList
-        products={[generate('ITEM001'), generate('ITEM002')]}
-        onProductChange={handleProductChange}
-      />
-    )
+    const action = name => cy.spy().as(name)
+    cy.mount(list(null, action))
   })
   it('should increase product when given item code', () => {
     cy.contains('ITEM001')

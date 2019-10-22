@@ -1,10 +1,9 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { actions } from '../store/todo'
 
-function TodoItem({ id, text, completed }) {
-  const dispatch = useDispatch()
+export function TodoItem({ id, text, completed, dispatch }) {
   return (
     <StyledItem completed={completed}>
       <span onClick={() => dispatch(actions.toggle(id))}>{`${text} `}</span>
@@ -22,4 +21,4 @@ const StyledItem = styled.li.attrs(props => ({
   text-decoration: ${props => (props.completed ? 'line-through' : undefined)};
 `
 
-export default TodoItem
+export default connect()(TodoItem)

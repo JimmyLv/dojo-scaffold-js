@@ -22,12 +22,8 @@ export default class AddProduct extends Component {
   }
 
   handleAdd = productCode => {
-    if (!productCode) {
-      return
-    }
     const { onAddProduct } = this.props
 
-    this.toggleAddModal()
     onAddProduct({
       code: productCode,
       price: 100,

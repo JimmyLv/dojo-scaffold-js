@@ -2,11 +2,13 @@ describe('todos API', () => {
   const initialItems = [
     {
       id: 1,
-      task: 'read something',
+      text: 'read something',
+      completed: false,
     },
     {
       id: 2,
-      task: 'write something',
+      text: 'write something',
+      completed: true,
     },
   ]
 
@@ -38,8 +40,8 @@ describe('todos API', () => {
       getItems().should('deep.eq', initialItems)
     })
 
-    it('returns id + task objects', () => {
-      getItems().each(value => expect(value).to.have.all.keys('id', 'task'))
+    it('returns id + text objects', () => {
+      getItems().each(value => expect(value).to.have.all.keys('id', 'text', 'completed'))
     })
   })
 
@@ -49,7 +51,7 @@ describe('todos API', () => {
 
     it('add an item', () => {
       const randomId = Cypress._.random(0, 10000)
-      const item = { id: randomId, task: 'life hacker' }
+      const item = { id: randomId, text: 'life hacker', completed: false }
 
       addItem(item)
       cy.request(`/api/todos/${randomId}`)
