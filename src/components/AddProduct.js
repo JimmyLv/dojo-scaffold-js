@@ -3,12 +3,6 @@ import AddModal from './AddModal'
 
 export default class AddProduct extends Component {
   state = { showAddModal: false }
-  handleAdd = product => {
-    const { onAddProduct } = this.props
-
-    this.toggleAddModal()
-    onAddProduct(product)
-  }
 
   render() {
     const { showAddModal } = this.state
@@ -25,6 +19,17 @@ export default class AddProduct extends Component {
         </button>
       </div>
     )
+  }
+
+  handleAdd = productCode => {
+    const { onAddProduct } = this.props
+
+    this.toggleAddModal()
+    onAddProduct({
+      code: productCode,
+      price: 100,
+      count: 1,
+    })
   }
 
   toggleAddModal = () => {

@@ -9,11 +9,12 @@ describe('<AddProduct/>', () => {
     cy.mount(<AddProduct onAddProduct={handleAddProduct} />)
     cy.queryByTestId('newProduct').click()
     cy.contains('Add new Product...')
-    cy.queryByTestId('productCode').type('ITEM001')
+    cy.queryByTestId('newProductCode').type('ITEM001')
     cy.queryByTestId('addProduct').click()
   })
   it('should add new product and reset field', () => {
     cy.contains('Add new Product...').should('not.visible')
     expect(handleAddProduct).to.be.calledWith('ITEM001')
   })
+  it('should not close modal when enter empty product code', () => {})
 })

@@ -16,7 +16,7 @@ export default class AddModal extends Component {
           <h2>Add new Product...</h2>
           <input
             type="text"
-            data-testid="productCode"
+            data-testid="newProductCode"
             value={newProduct}
             onChange={this.handleChange}
           />
