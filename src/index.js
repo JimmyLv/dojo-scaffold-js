@@ -6,14 +6,10 @@ import { Provider } from 'react-redux'
 import store from './store'
 import * as serviceWorker from './serviceWorker'
 
-export function setupApp(Comp) {
-  return <Provider store={store}>
-    {Comp}
-  </Provider>
-}
-
 ReactDOM.render(
-  setupApp(<App />),
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('root'),
 )
 

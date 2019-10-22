@@ -9,11 +9,11 @@
     "start-dev": "react-scripts -r @cypress/instrument-cra start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "mock": "json-server --watch data/db.json --routes data/routes.json --port 8080",
     "cy:open": "cypress open",
     "cy:run": "cypress run --spec 'cypress/integration/E2E/**/*'",
     "cy:run:apis": "cypress run --spec 'cypress/integration/apis/**/*'",
     "cy:run:components": "cypress run --spec 'cypress/integration/components/**/*'",
+    "mock": "json-server --watch data/db.json --routes data/routes.json --port 8080",
     "eject": "react-scripts eject",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build",
@@ -67,6 +67,8 @@
     "@cypress/webpack-preprocessor": "^4.1.0",
     "@storybook/addon-actions": "^5.2.5",
     "@storybook/addon-links": "^5.2.5",
+    "@storybook/addon-storyshots": "^5.2.5",
+    "@storybook/addon-storyshots-puppeteer": "^5.2.5",
     "@storybook/addons": "^5.2.5",
     "@storybook/react": "^5.2.5",
     "@testing-library/cypress": "^5.0.2",
@@ -85,7 +87,9 @@
     "json-server": "^0.15.1",
     "nyc": "^14.1.1",
     "prettier": "1.18.2",
+    "react-test-renderer": "^16.10.2",
     "redux-devtools-extension": "^2.13.8",
-    "redux-mock-store": "^1.5.3"
+    "redux-mock-store": "^1.5.3",
+    "require-context.macro": "^1.2.2"
   }
 }

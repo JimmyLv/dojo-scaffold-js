@@ -1,10 +1,13 @@
 import { addDecorator, configure } from '@storybook/react'
-import { setupApp } from '../src'
+import React from 'react'
+import { Provider } from 'react-redux'
+import requireContext from 'require-context.macro'
+import store from '../src/store'
 
 // automatically import all files ending in *.stories.js
 configure(
-  require.context('../cypress/integration/components', true, /\.stories\.js$/),
+  requireContext('../cypress/integration/components', true, /\.stories\.js$/),
   module
 )
 
-addDecorator(story => setupApp(story()))
+addDecorator(story => <Provider store={store}>{story()}</Provider>)
