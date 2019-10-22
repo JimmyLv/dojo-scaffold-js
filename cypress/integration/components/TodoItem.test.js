@@ -3,10 +3,8 @@ import * as todos from '../../../src/store/todo'
 import { completed, todo } from './TodoItem.stories'
 
 describe('<TodoItem />', () => {
-  const action = name => cy.spy().as(name)
-
   it('show completed item', () => {
-    cy.mount(completed(null, action))
+    cy.mount(completed())
 
     cy.contains('test item')
       .parent()
@@ -14,7 +12,7 @@ describe('<TodoItem />', () => {
   })
 
   it('toggle completed on click', () => {
-    cy.mount(todo(null, action))
+    cy.mount(todo())
 
     cy.contains('test item').click()
     cy.get('@dispatch').should('be.calledWith', {
@@ -24,7 +22,7 @@ describe('<TodoItem />', () => {
   })
 
   it('remove item on click', () => {
-    cy.mount(todo(null, action))
+    cy.mount(todo())
 
     cy.contains('test item')
       .siblings('.delete')

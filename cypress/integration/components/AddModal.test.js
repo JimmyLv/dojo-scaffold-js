@@ -3,8 +3,7 @@ import { modal } from './AddModal.stories'
 
 describe('<AddModal />', () => {
   beforeEach(() => {
-    const action = name => cy.spy().as(name)
-    cy.mount(modal(null, action))
+    cy.mount(modal())
   });
   it('should show and hidden modal with background', () => {
     cy.findByTestId('modalBackground').click()

@@ -3,8 +3,7 @@ import { list } from './ProductList.stories'
 
 describe('<ProductList/>', () => {
   beforeEach(() => {
-    const action = name => cy.spy().as(name)
-    cy.mount(list(null, action))
+    cy.mount(list())
   })
   it('should increase product when given item code', () => {
     cy.contains('ITEM001')

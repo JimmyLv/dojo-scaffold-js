@@ -7,8 +7,7 @@ beforeEach(fixCypressSpec(__filename, window))
 
 describe('<FilterInfo />', () => {
   it('filter completed items', () => {
-    const action = name => cy.spy().as(name)
-    cy.mount(filters(null, action))
+    cy.mount(filters())
     cy.contains('Active').click()
     // just verify the dispatched action
     cy.get('@dispatch').should('be.calledWith', {

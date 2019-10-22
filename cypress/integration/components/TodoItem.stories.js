@@ -1,12 +1,12 @@
-import { action } from '@storybook/addon-actions'
 import React from 'react'
 import { TodoItem } from '../../../src/components/TodoItem'
+import act from '../common/action'
 
 export default {
   title: 'TodoItem',
 }
 
-export const todo = (_, act = action) => (
+export const todo = () => (
   <TodoItem
     id={1}
     text="test item"
@@ -15,7 +15,7 @@ export const todo = (_, act = action) => (
   />
 )
 
-export const completed = (_, act = action) => (
+export const completed = () => (
   <TodoItem
     id={1}
     text="test item"

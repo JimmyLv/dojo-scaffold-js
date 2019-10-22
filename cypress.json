@@ -5,6 +5,7 @@
     "*.stories.js",
     "*.step.js",
     "*.feature",
+    "**/common/*",
     "**/__snapshots__/*",
     "**/__image_snapshots__/*"
   ],

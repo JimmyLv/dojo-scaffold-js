@@ -1,12 +1,12 @@
-import { action } from '@storybook/addon-actions'
 import React from 'react'
 import { FilterInfo } from '../../../src/components/FilterInfo'
+import act from '../common/action'
 
 export default {
   title: 'FilterInfo',
 }
 
-export const filters = (_, act = action) => (
+export const filters = () => (
   <FilterInfo
     filters={['All', 'Active', 'Completed']}
     dispatch={act('dispatch')}
