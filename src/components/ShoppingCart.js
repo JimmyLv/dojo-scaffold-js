@@ -6,6 +6,31 @@ export default class ShoppingCart extends Component {
   state = {
     products: [],
   }
+  render() {
+    const { products } = this.state
+    return (
+      <>
+        <h1>React Shopping Cart</h1>
+        <div data-testid="totalPrice">
+          ￥{ShoppingCart.totalPrice(products)}
+        </div>
+        <AddProduct onAddProduct={this.handleAddProduct} />
+        <ProductList
+          products={products}
+          onProductChange={this.handleProductChange}
+        />
+      </>
+    )
+  }
+
+  handleProductChange = productToChange => {
+    this.setState(state => ({
+      products: state.products.map(item =>
+        item.code === productToChange.code ? productToChange : item
+      ),
+    }))
+  }
+
   handleAddProduct = newProduct => {
     const { products } = this.state
 
@@ -21,20 +46,6 @@ export default class ShoppingCart extends Component {
         products: [...state.products, newProduct],
       }))
     }
-  }
-
-  render() {
-    const { products } = this.state
-    return (
-      <>
-        <h1>React Shopping Cart</h1>
-        <div data-testid="totalPrice">
-          ￥{ShoppingCart.totalPrice(products)}
-        </div>
-        <AddProduct onAddProduct={this.handleAddProduct} />
-        <ProductList products={products} />
-      </>
-    )
   }
 
   static totalPrice(products) {

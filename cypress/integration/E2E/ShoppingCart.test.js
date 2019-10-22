@@ -20,11 +20,20 @@ describe('ShoppingCart', () => {
     addProduct('ITEM002')
     addProduct('ITEM002')
     cy.queryAllByTestId('productCode').should('have.length', 2)
-    cy.contains('ITEM002')
-      .siblings('span')
-      .contains('2')
+    getField('ITEM002', 'productCount').should('have.text', '2')
   })
-
+  it('should increase and decrease product count when click counter', () => {
+    getField('ITEM001', 'increaseCount').click()
+    getField('ITEM001', 'productCount').should('have.text', '2')
+    getField('ITEM001', 'decreaseCount').click()
+    getField('ITEM001', 'productCount').should('have.text', '1')
+  })
+  function getField(code, testId) {
+    return cy
+      .contains(code)
+      .siblings()
+      .children(`[data-testid="${testId}"]`)
+  }
   function addProduct(code) {
     cy.queryByTestId('newProduct').click()
     cy.queryByTestId('newProductCode').type(code)
