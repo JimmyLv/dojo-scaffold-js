@@ -27,4 +27,4 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-**/__image_snapshots__
+#**/__image_snapshots__
