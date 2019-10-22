@@ -27,6 +27,8 @@ describe('ShoppingCart', () => {
     getField('ITEM001', 'productCount').should('have.text', '2')
     getField('ITEM001', 'decreaseCount').click()
     getField('ITEM001', 'productCount').should('have.text', '1')
+    getField('ITEM001', 'decreaseCount').click()
+    getField('ITEM001', 'productCount').should('have.text', '1')
   })
   function getField(code, testId) {
     return cy

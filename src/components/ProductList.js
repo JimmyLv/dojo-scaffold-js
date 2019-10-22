@@ -11,7 +11,7 @@ export default function ProductList({ products, onProductChange }) {
   const onDecrease = product =>
     onProductChange({
       ...product,
-      count: product.count - 1,
+      count: product.count > 1 ? product.count - 1 : 1,
     })
   return (
     <div>
