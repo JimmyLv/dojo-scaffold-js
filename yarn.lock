@@ -2602,7 +2602,7 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
-"@types/sizzle@*":
+"@types/sizzle@*", "@types/sizzle@2.3.2":
   version "2.3.2"
   resolved "https://registry.npm.taobao.org/@types/sizzle/download/@types/sizzle-2.3.2.tgz#a811b8c18e2babab7d542b3365887ae2e4d9de47"
   integrity sha1-qBG4wY4rq6t9VCszZYh64uTZ3kc=
@@ -5612,13 +5612,14 @@ cypress-skip-and-only-ui@^1.2.1:
     react "16.9.0"
     react-dom "16.9.0"
 
-cypress@^3.4.1:
-  version "3.4.1"
-  resolved "https://nexus.dev.casaba.tech/repository/npm/cypress/-/cypress-3.4.1.tgz#ca2e4e9864679da686c6a6189603efd409664c30"
-  integrity sha1-yi5OmGRnnaaGxqYYlgPv1AlmTDA=
+cypress@^3.5.0:
+  version "3.5.0"
+  resolved "https://registry.npm.taobao.org/cypress/download/cypress-3.5.0.tgz#e188bc8f48782953f6865d8830a4dc342334b81c"
+  integrity sha1-4Yi8j0h4KVP2hl2IMKTcNCM0uBw=
   dependencies:
     "@cypress/listr-verbose-renderer" "0.4.1"
     "@cypress/xvfb" "1.2.4"
+    "@types/sizzle" "2.3.2"
     arch "2.1.1"
     bluebird "3.5.0"
     cachedir "1.3.0"
@@ -5645,6 +5646,7 @@ cypress@^3.4.1:
     request-progress "3.0.0"
     supports-color "5.5.0"
     tmp "0.1.0"
+    untildify "3.0.3"
     url "0.11.0"
     yauzl "2.10.0"
 
@@ -15185,6 +15187,11 @@ unset-value@^1.0.0:
   dependencies:
     has-value "^0.3.1"
     isobject "^3.0.0"
+
+untildify@3.0.3:
+  version "3.0.3"
+  resolved "https://registry.npm.taobao.org/untildify/download/untildify-3.0.3.tgz#1e7b42b140bcfd922b22e70ca1265bfe3634c7c9"
+  integrity sha1-HntCsUC8/ZIrIucMoSZb/jY0x8k=
 
 upath@^1.1.1:
   version "1.1.2"
