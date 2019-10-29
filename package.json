@@ -90,6 +90,7 @@
     "react-test-renderer": "^16.10.2",
     "redux-devtools-extension": "^2.13.8",
     "redux-mock-store": "^1.5.3",
+    "redux-saga-test-plan": "^4.0.0-rc.2",
     "require-context.macro": "^1.2.2"
   }
 }

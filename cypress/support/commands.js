@@ -27,6 +27,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import '@testing-library/cypress/add-commands'
+import store from '../../src/store'
 
 // this is a handy function that I normally make available for all my tests
 // that deal with connected components.
@@ -35,6 +36,11 @@ const mockStore = configureMockStore()
 
 Cypress.Commands.add('mountWithRedux', (ui, data = {}) => {
   const { initialState, store = mockStore(initialState) } = data
+  cy.spy(store, 'dispatch').as('dispatch')
+  cy.mount(<Provider store={store}>{ui}</Provider>)
+})
+
+Cypress.Commands.add('mountWithStore', (ui) => {
   cy.spy(store, 'dispatch').as('dispatch')
   cy.mount(<Provider store={store}>{ui}</Provider>)
 })

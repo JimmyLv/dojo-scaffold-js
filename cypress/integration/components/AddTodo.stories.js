@@ -1,9 +1,9 @@
-import { action } from '@storybook/addon-actions'
 import React from 'react'
-import AddTodo from '../../../src/components/AddTodo'
+import { AddTodo } from '../../../src/components/AddTodo'
+import act from '../common/action'
 
 export default {
   title: 'AddTodo',
 }
 
-export const todo = (_, act = action) => <AddTodo />
+export const todo = () => <AddTodo dispatch={act('dispatch')} />
