@@ -1,3 +1,6 @@
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/JimmyLv/dojo-scaffold-js)
+
+
 # 练功房脚手架
 
 如果你恰好也用 JavaScript 做练功房的练习，可以从这个脚手架开始入手。
