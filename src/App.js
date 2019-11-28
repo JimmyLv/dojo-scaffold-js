@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import './App.css'
 import AddTodo from './components/AddTodo'
-import ShoppingCart from './components/ShoppingCart'
+import { Comment } from './components/Comment'
 import FilterInfo from './components/FilterInfo'
 import MessageList from './components/MessageList'
 import NewMessageForm from './components/NewMessageForm'
+import ShoppingCart from './components/ShoppingCart'
 import TodoList from './components/TodoList'
 import { actions, selectors } from './store/todo'
 
@@ -37,6 +38,7 @@ export class App extends Component {
           <NewMessageForm onSend={this.handleSend} />
           <MessageList messages={messages} />
         </div>
+        <Comment />
         <hr />
         <ShoppingCart />
       </div>

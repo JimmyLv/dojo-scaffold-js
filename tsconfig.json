@@ -6,6 +6,7 @@
     "allowJs": true,
     "checkJs": true,
     "jsx": "preserve",
+    "types": ["cypress", "@types/testing-library__cypress"],
     "lib": ["dom", "dom.iterable", "esnext"],
     "skipLibCheck": true,
     "esModuleInterop": true,
