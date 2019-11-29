@@ -91,7 +91,7 @@
     "jest-fetch-mock": "^2.1.2",
     "json-server": "^0.15.1",
     "nyc": "^14.1.1",
-    "prettier": "1.18.2",
+    "prettier": "1.19.1",
     "react-test-renderer": "^16.10.2",
     "redux-devtools-extension": "^2.13.8",
     "redux-mock-store": "^1.5.3",
