@@ -1,4 +1,4 @@
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/JimmyLv/dojo-scaffold-js)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/JimmyLv/dojo-scaffold-js) [![Open in CodeSandbox](https://gitpod.io/button/open-in-gitpod.svg)](https://codesandbox.io/s/github/jimmylv/dojo-scaffold-js/tree/master/)
 
 
 # 练功房脚手架
