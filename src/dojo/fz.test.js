@@ -11,9 +11,8 @@ function fizzBuzz(number) {
   if (relatedTo(5)) {
     result += 'Buzz'
   }
-  if (result === '') return number + ''
 
-  return result
+  return result || number.toString()
 }
 
 describe('FizzBuzz', () => {
