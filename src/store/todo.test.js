@@ -19,7 +19,6 @@ const mockTodos = [
 //   query: () => mockTodos,
 // }))
 
-TodoApi.query = jest.fn(() => mockTodos)
 
 describe('todos reducers', () => {
   it('should add todo in store state', () => {
@@ -64,16 +63,18 @@ describe('todos reducers', () => {
     expect(result.list).toEqual([{ id: 1, text: 'new todo.', completed: true }])
   })
 
+  TodoApi.query = jest.fn(() => mockTodos)
+
   it('should fetch todos when dispatch fetchTodos action', async () => {
-    await expectSaga(sagas)
-      .withReducer(reducer)
+    await expectSaga(exam.fetchExercise)
+      .withReducer(exam.reducer.setExercise)
       .hasFinalState({
         list: mockTodos,
         error: null,
       })
-      .put({ type: types.UPDATE, payload: { todos: mockTodos } })
-      // .put({ type: types.FETCH_ERROR })
-      .dispatch(actions.fetchTodos())
+      // .put({ type: types.UPDATE, payload: { todos: mockTodos } })
+      .put({ type: 'exam/fetchExercise' })
+      // .dispatch(actions.fetchTodos())
       .run()
 
     expect(TodoApi.query).toBeCalled()
