@@ -2038,10 +2038,10 @@
     date-fns "^1.27.2"
     figures "^1.7.0"
 
-"@cypress/webpack-preprocessor@^4.1.0":
-  version "4.1.1"
-  resolved "https://registry.npm.taobao.org/@cypress/webpack-preprocessor/download/@cypress/webpack-preprocessor-4.1.1.tgz#3c0b5b8de6eaac605dac3b1f1c3f5916c1c6eaea"
-  integrity sha1-PAtbjebqrGBdrDsfHD9ZFsHG6uo=
+"@cypress/webpack-preprocessor@4.1.5":
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/@cypress/webpack-preprocessor/-/webpack-preprocessor-4.1.5.tgz#b47d515d2540af977ee8b69d7c4eed64e3027668"
+  integrity sha512-B4miSaS3VCMVSlfuvbWCjytTywdnquRsF1tQ3quC7TGUzEXnQZ4+o8WUKibjMozrOomALkUdMxqOJ1ib5oFkKw==
   dependencies:
     bluebird "3.7.1"
     debug "4.1.1"
