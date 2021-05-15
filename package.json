@@ -83,7 +83,7 @@
     "cypress": "^3.5.0",
     "cypress-cucumber-preprocessor": "^1.16.0",
     "cypress-jest-adapter": "^0.1.1",
-    "cypress-plugin-snapshots": "^1.2.9",
+    "cypress-plugin-snapshots": "1.4.4",
     "cypress-react-unit-test": "^2.4.3",
     "cypress-skip-and-only-ui": "^1.2.1",
     "eslint-plugin-prettier": "^3.1.1",
