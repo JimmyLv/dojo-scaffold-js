@@ -62,10 +62,10 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/plugin-transform-runtime": "^7.6.0",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "7.16.7",
+    "@babel/plugin-transform-runtime": "7.17.10",
+    "@babel/preset-env": "7.17.10",
+    "@babel/preset-react": "7.16.7",
     "@cypress/code-coverage": "^1.10.1",
     "@cypress/instrument-cra": "^1.0.0",
     "@cypress/webpack-preprocessor": "^4.1.0",
@@ -79,7 +79,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "@types/testing-library__cypress": "^5.0.0",
-    "babel-loader": "^8.0.6",
+    "babel-loader": "8.2.5",
     "cypress": "^3.5.0",
     "cypress-cucumber-preprocessor": "^1.16.0",
     "cypress-jest-adapter": "^0.1.1",
